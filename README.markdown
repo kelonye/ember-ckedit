@@ -6,11 +6,11 @@ Usage
 
 See [demo](http://kelonye.github.com/#/pages/ckedit)
 
-javascript
+js
 
 ```
 
-App.EditorView = Em.View.extend require("ckedit"),
+App.EditorView = Em.View.extend require("ember-ckedit"),
   contentBinding: "<h1>Hi</h1>"
   inline: true # make inline editor instead
 
