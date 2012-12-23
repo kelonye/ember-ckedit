@@ -11,7 +11,7 @@ js
 ```
 
 App.EditorView = Em.View.extend require("ember-ckedit"),
-  contentBinding: "<h1>Hi</h1>"
+  content: "<h1>Hi</h1>"
   inline: true # make inline editor instead
 
 ```
