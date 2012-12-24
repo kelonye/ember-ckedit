@@ -5,22 +5,28 @@ module.exports = Em.Mixin.create
 
   init: ->
 
-    inline = get @, "inline"
+    ###
+      if isInline,
+      make view as contenteditable,
+      else make view as textarea
+    ###
 
-    if inline is true
-      props = 
+    isInline = get @, "isInline"
+
+    if isInline is true
+      properties = 
         attributeBindings: ["contenteditable"]
         contenteditable: "true"
 
     else
 
-      props = 
+      properties = 
         tagName: "textarea"
         classNames: ["ckeditor"]
         attributeBindings: ["name"]
         nameBinding: "elementId"
 
-    @setProperties props
+    @setProperties properties
     @_super()
 
   template: Em.Handlebars.compile ""
@@ -28,6 +34,8 @@ module.exports = Em.Mixin.create
   didInsertElement: ->
 
     @_super()
+
+    #require ckeditor
 
     path = document.location.pathname
     lastSlash = path.lastIndexOf("/") + 1
@@ -37,10 +45,12 @@ module.exports = Em.Mixin.create
 
     that = @
 
-    inline = get @, "inline"
+    isInline = get @, "isInline"
     elementId = get that, "elementId"
 
-    if inline is true
+    # create editor
+
+    if isInline is true
 
       CKEDITOR.disableAutoInline = true
       editor = CKEDITOR.inline elementId
@@ -49,25 +59,29 @@ module.exports = Em.Mixin.create
 
       editor = CKEDITOR.replace elementId
 
+    # set editor's data as view's content
 
     content = get that, "content"
     editor.setData content
     set that, "editor", editor
 
-    update = ->
-      # update view content
-      e = get that, "editor"
-      content = e.getData()
+    # update view's content
+    
+    # sets view's content as editor's data
+    updateViewContent = ->
+      editor = get that, "editor"
+      content = editor.getData()
       set that, "content", content
 
+    # event handlers
     editor.on "focus", ->
-      update()
+      updateViewContent()
 
     editor.on "blur", ->
-      update()
+      updateViewContent()
 
     editor.on "key", ->
-      update()
+      updateViewContent()
 
   willDestroyElement: ->
     editor = get @, "editor"
