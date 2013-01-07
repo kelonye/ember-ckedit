@@ -5,14 +5,14 @@
   "license": "MIT",
   "description": "Ckeditor component",
   "dependencies": {
-    "component/jquery": "*",
-    "kelonye/handlebars.js": "*",
-    "kelonye/ember.js": "*"
+    "kelonye/ember": "*"
   },
   "keywords": [
-    "ember",
-    "emberjs",
-    "ckedit"
+    "editor",
+    "ckeditor"
+  ],
+  "styles": [
+    "lib/style.css"
   ],
   "scripts": [
     "ckeditor/ckeditor.js",

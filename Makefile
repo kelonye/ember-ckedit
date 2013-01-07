@@ -1,33 +1,18 @@
-ESCAPE = 'includes\|extends\|git\|hg\|components\|node_modules'
+COFFEE = $(shell find lib -name "*.coffee") index.coffee
+JS 		 = $(COFFEE:.coffee=.js)
 
-JADE 			= $(shell find -L -path "*templates/**.jade" | grep -v $(ESCAPE) )
-TEMPLATES = $(JADE:.jade=.js)
-
-JADE = $(shell find -L -name "*.jade" | grep -v $(ESCAPE) )
-HTML = $(JADE:.jade=.html)
-
-COFFEE 	= $(shell find -L -name "*.coffee" | grep -v $(ESCAPE) )
-JS 			= $(COFFEE:.coffee=.js)
-
-STYL 	= $(shell find -L -name "*.styl" | grep -v $(ESCAPE) )
+STYL 	= $(shell find lib -name "*.styl")
 CSS 	= $(STYL:.styl=.css)
 
-build: $(HTML) $(CSS) $(JS) $(TEMPLATES)
-	@component build --dev
+build: $(CSS) $(JS)
 
 %.css: %.styl
 	stylus -u nib $<
-
-%.html: %.jade
-	jade -P < $< --path $< > $@
-
-%.js: %.html
-	component convert $<
 
 %.js: %.coffee
 	coffee -bc $<
 
 clean:
-	rm -rf $(HTML) $(CSS) $(JS) $(TEMPLATES)
+	rm -rf $(CSS) $(JS)
 
 .PHONY: clean

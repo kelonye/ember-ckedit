@@ -59,19 +59,19 @@ module.exports = Em.Mixin.create
 
       editor = CKEDITOR.replace elementId
 
-    # set editor's data as view's content
+    # set editor's data as view's value
 
-    content = get that, "content"
-    editor.setData content
+    value = get that, "value"
+    editor.setData value
     set that, "editor", editor
 
-    # update view's content
+    # update view's value
     
-    # sets view's content as editor's data
+    # sets view's value as editor's data
     updateViewContent = ->
       editor = get that, "editor"
-      content = editor.getData()
-      set that, "content", content
+      value = editor.getData()
+      set that, "value", value
 
     # event handlers
     editor.on "focus", ->
