@@ -3,6 +3,8 @@ set = Em.set
 
 module.exports = Em.Mixin.create
 
+  template: Em.Handlebars.compile ''
+
   init: ->
 
     ###
@@ -11,25 +13,24 @@ module.exports = Em.Mixin.create
       else make view as textarea
     ###
 
-    isInline = get @, "isInline"
+    isInline = get @, 'isInline'
 
     if isInline is true
       properties = 
-        attributeBindings: ["contenteditable"]
-        contenteditable: "true"
+        attributeBindings: ['contenteditable']
+        contenteditable: 'true'
 
     else
 
       properties = 
-        tagName: "textarea"
-        classNames: ["ckeditor"]
-        attributeBindings: ["name"]
-        nameBinding: "elementId"
+        tagName: 'textarea'
+        classNames: ['ckeditor']
+        attributeBindings: ['name']
+        nameBinding: 'elementId'
 
     @setProperties properties
     @_super()
 
-  template: Em.Handlebars.compile ""
 
   didInsertElement: ->
 
@@ -38,15 +39,15 @@ module.exports = Em.Mixin.create
     #require ckeditor
 
     path = document.location.pathname
-    lastSlash = path.lastIndexOf("/") + 1
+    lastSlash = path.lastIndexOf('/') + 1
     abspath = path.substring(0, lastSlash)
     window.CKEDITOR_BASEPATH = "#{abspath}build/kelonye-ember-ckedit/ckeditor/"
-    require "../ckeditor/ckeditor"
+    require '../ckeditor/ckeditor'
 
     that = @
 
-    isInline = get @, "isInline"
-    elementId = get that, "elementId"
+    isInline = get @, 'isInline'
+    elementId = get that, 'elementId'
 
     # create editor
 
@@ -61,28 +62,35 @@ module.exports = Em.Mixin.create
 
     # set editor's data as view's value
 
-    value = get that, "value"
+    value = get that, 'value'
+    set that, 'editor', editor
+
+    that.addObserver 'value', ->
+      value = get that, 'value'
+      editor.setData value
+
     editor.setData value
-    set that, "editor", editor
 
     # update view's value
     
     # sets view's value as editor's data
     updateViewContent = ->
-      editor = get that, "editor"
+      editor = get that, 'editor'
       value = editor.getData()
-      set that, "value", value
+      set that, 'value', value
 
     # event handlers
-    editor.on "focus", ->
+    editor.on 'focus', ->
       updateViewContent()
 
-    editor.on "blur", ->
+    editor.on 'blur', ->
       updateViewContent()
 
-    editor.on "key", ->
+    editor.on 'key', ->
       updateViewContent()
-
+    
   willDestroyElement: ->
-    editor = get @, "editor"
+    editor = get @, 'editor'
     editor?.destroy true
+
+    @removeObserver 'value'
