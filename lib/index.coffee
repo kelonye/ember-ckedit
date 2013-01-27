@@ -69,13 +69,16 @@ module.exports = Em.Mixin.create
 
     editor.on 'focus', ->
       @updateContext()
+    , @
 
     editor.on 'blur', ->
       @updateContext()
+    , @
 
     editor.on 'key', ->
       @updateContext()
-    
+    , @
+
   willDestroyElement: ->
     editor = get @, 'editor'
     editor?.destroy true
@@ -84,6 +87,7 @@ module.exports = Em.Mixin.create
 
   updateEditor: ->
     value = get @, 'value'
+    editor = get @, 'editor'
     editor.setData value
 
   updateContext: ->
