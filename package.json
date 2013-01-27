@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "description": "Ckeditor component",
   "license": "MIT",
-  "dependencies": {
-    "stylus": "*",
-    "nib": "*",
+  "devDependencies": {
     "coffee-script": "*",
-    "component": "*"
-  }
+    "mocha-phantomjs": "*",
+    "component": "*",
+    "jade": "*",
+    "mocha": "*",
+    "stylus": "*",
+    "nib": "*"
+  },
+  "script": "npm install && component install && make test"
 }

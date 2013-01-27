@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>validate</title><link rel="stylesheet" href="../../node_modules/mocha/mocha.css"><link rel="stylesheet" href="../../build/build.css"></head><body><div id="mocha"></div><script src="../../build/build.js"></script><script type="text/javascript">
+(function() {
+
+  require("kelonye-ember");
+
+  window.EditorMixin = require("ember-ckedit");
+
+  window.assert = require("timoxley-assert");
+
+}).call(this);
+</script><script src="../../node_modules/mocha/mocha.js"></script><script type="text/javascript">
+(function() {
+
+  mocha.setup('bdd');
+
+}).call(this);
+</script><script src="../editor.js"></script><script type="text/javascript">
+(function() {
+
+  if (window.mochaPhantomJS) {
+    mochaPhantomJS.run();
+  } else {
+    mocha.run();
+  }
+
+}).call(this);
+</script></body></html>

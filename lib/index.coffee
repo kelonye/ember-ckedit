@@ -8,8 +8,7 @@ module.exports = Em.Mixin.create
   init: ->
 
     ###
-      if isInline,
-      make view as contenteditable,
+      if @isInline, make view as contenteditable,
       else make view as textarea
     ###
 
@@ -44,10 +43,8 @@ module.exports = Em.Mixin.create
     window.CKEDITOR_BASEPATH = "#{abspath}build/kelonye-ember-ckedit/ckeditor/"
     require '../ckeditor/ckeditor'
 
-    that = @
-
-    isInline = get @, 'isInline'
-    elementId = get that, 'elementId'
+    isInline  = get @, 'isInline'
+    elementId = get @, 'elementId'
 
     # create editor
 
@@ -60,37 +57,36 @@ module.exports = Em.Mixin.create
 
       editor = CKEDITOR.replace elementId
 
-    # set editor's data as view's value
+    set @, 'editor', editor
 
-    value = get that, 'value'
-    set that, 'editor', editor
+    # update editor if ...
 
-    that.addObserver 'value', ->
-      value = get that, 'value'
-      editor.setData value
+    @addObserver 'value', ->
+      @updateEditor()
+    @updateEditor()
 
-    editor.setData value
+    # update context if ...
 
-    # update view's value
-    
-    # sets view's value as editor's data
-    updateViewContent = ->
-      editor = get that, 'editor'
-      value = editor.getData()
-      set that, 'value', value
-
-    # event handlers
     editor.on 'focus', ->
-      updateViewContent()
+      @updateContext()
 
     editor.on 'blur', ->
-      updateViewContent()
+      @updateContext()
 
     editor.on 'key', ->
-      updateViewContent()
+      @updateContext()
     
   willDestroyElement: ->
     editor = get @, 'editor'
     editor?.destroy true
 
     @removeObserver 'value'
+
+  updateEditor: ->
+    value = get @, 'value'
+    editor.setData value
+
+  updateContext: ->
+    editor = get @, 'editor'
+    value = editor.getData()
+    set @, 'value', value
