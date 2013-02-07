@@ -22,6 +22,10 @@ build: $(HTML) $(JS) $(CSS)
 %.js: %.coffee
 	coffee -bc $<
 
+find:
+	#
+	find ckeditor/plugins -type f && find ckeditor/skins -type f
+
 clean:
 	rm -rf $(HTML) $(JS) $(CSS) build
 
