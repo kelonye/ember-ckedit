@@ -24,7 +24,7 @@ describe 'Editor:', ->
   it "on init editor's data matches bound context attr", ->
     assert.equal get( editorView, 'value' ), '<p>content</p>'
 
-  it "editor's value changes when bound context attr changes", ->
+  it.skip "editor's value changes when bound context attr changes", ->
     content = '<p>new content</p>'
     Em.run ->
       set post, 'content', content

@@ -27,7 +27,7 @@ describe('Editor:', function() {
   it("on init editor's data matches bound context attr", function() {
     return assert.equal(get(editorView, 'value'), '<p>content</p>');
   });
-  it("editor's value changes when bound context attr changes", function() {
+  it.skip("editor's value changes when bound context attr changes", function() {
     var content;
     content = '<p>new content</p>';
     Em.run(function() {

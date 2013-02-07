@@ -8,22 +8,42 @@ See [demo](http://kelonye.github.com/#/pages/ckedit)
 
 js
 
-
 ```
+App.Post = DS.Model.extend
+  content: DS.attr 'string'
+
+App.PostsNewRoute = Em.Route.extend
+  model: ->
+    App.Post.createRecord()
+
+  events:
+    save: (post)->
+      editor = get post, 'editor'
+      content = editor.getData()
+      set post, 'content', content
+      store = get post, 'store'
+      store.commit()
+
 App.EditorView = Em.View.extend require("ember-ckedit"),
-  value: '<h1>Hi</h1>'
+  for: 'content'
   isInline: true # make inline editor
 
+<div data-template-name="posts/new">
+  {{#with content}}
+  {{view App.EditorView for="content"}}
+  <button {{action save this}}></button>
+  {{/with}}
+</div>
 ```
 
 Api
 ---
 
-.value
-  editor's content
+.for
+  the view context's attr which the editor's data will be set on creation
 
 .isInline
-  inline editor
+  opt for an inline editor
 
 License
 ---

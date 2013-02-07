@@ -8,8 +8,7 @@ module.exports = Em.Mixin.create
   init: ->
 
     ###
-      if @isInline, make view as contenteditable,
-      else make view as textarea
+      if @isInline, make view as contenteditable, else make view as textarea
     ###
 
     isInline = get @, 'isInline'
@@ -35,7 +34,7 @@ module.exports = Em.Mixin.create
 
     @_super()
 
-    #require ckeditor
+    # require ckeditor
 
     path = document.location.pathname
     lastSlash = path.lastIndexOf('/') + 1
@@ -57,40 +56,17 @@ module.exports = Em.Mixin.create
 
       editor = CKEDITOR.replace elementId
 
-    set @, 'editor', editor
+    # set data as context value
 
-    # update editor if ...
+    context = get @, 'context'
+    _for = get @, 'for'
 
-    @addObserver 'value', ->
-      @updateEditor()
-    @updateEditor()
-
-    # update context if ...
-
-    editor.on 'focus', ->
-      @updateContext()
-    , @
-
-    editor.on 'blur', ->
-      @updateContext()
-    , @
-
-    editor.on 'key', ->
-      @updateContext()
-    , @
-
-  willDestroyElement: ->
-    editor = get @, 'editor'
-    editor?.destroy true
-
-    @removeObserver 'value'
-
-  updateEditor: ->
-    value = get @, 'value'
-    editor = get @, 'editor'
+    value = get context, "#{_for}"
     editor.setData value
 
-  updateContext: ->
-    editor = get @, 'editor'
-    value = editor.getData()
-    set @, 'value', value
+    set context, 'editor', editor
+
+  willDestroyElement: ->
+    context = get @, 'context'
+    editor = get context, 'editor'
+    editor.destroy false

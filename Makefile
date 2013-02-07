@@ -7,8 +7,8 @@ JS = $(COFFEE:.coffee=.js)
 STYL 	= $(shell find lib -name "*.styl")
 CSS 	= $(STYL:.styl=.css)
 
-test: build
-	@mocha-phantomjs -R dot test/support/index.html
+# test: build
+# 	@mocha-phantomjs -R dot test/support/index.html
 
 build: $(HTML) $(JS) $(CSS)
 	@component build --dev
