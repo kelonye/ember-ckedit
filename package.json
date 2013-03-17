@@ -5,12 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "coffee-script": "*",
-    "mocha-phantomjs": "*",
-    "component": "*",
-    "jade": "*",
-    "mocha": "*",
     "stylus": "*",
     "nib": "*"
-  },
-  "script": "npm install && component install && make test"
+  }
 }

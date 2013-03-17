@@ -1,6 +1,3 @@
-get = Em.get
-set = Em.set
-
 module.exports = Em.Mixin.create
 
   template: Em.Handlebars.compile ''
@@ -11,7 +8,7 @@ module.exports = Em.Mixin.create
       if @isInline, make view as contenteditable, else make view as textarea
     ###
 
-    isInline = get @, 'isInline'
+    isInline = @get 'isInline'
 
     if isInline is true
       properties = 
@@ -42,8 +39,8 @@ module.exports = Em.Mixin.create
     window.CKEDITOR_BASEPATH = "#{abspath}build/kelonye-ember-ckedit/ckeditor/"
     require '../ckeditor/ckeditor'
 
-    isInline  = get @, 'isInline'
-    elementId = get @, 'elementId'
+    isInline  = @get 'isInline'
+    elementId = @get 'elementId'
 
     # create editor
 
@@ -58,15 +55,14 @@ module.exports = Em.Mixin.create
 
     # set data as context value
 
-    context = get @, 'context'
-    _for = get @, 'for'
+    context = @get 'context'
+    _for = @get 'for'
 
-    value = get context, "#{_for}"
+    value = context.get "#{_for}"
     editor.setData value
-
-    set context, 'editor', editor
+    context.set 'editor', editor
 
   willDestroyElement: ->
-    context = get @, 'context'
-    editor = get context, 'editor'
+    context = @get 'context'
+    editor = context.get 'editor'
     editor.destroy false

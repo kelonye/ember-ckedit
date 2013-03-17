@@ -1,32 +1,21 @@
-JADE = $(shell find test -name "*.jade")
-HTML = $(JADE:.jade=.html)
+all: node_modules lib lib/index.js lib/style.css
 
-COFFEE = $(shell find test lib -name "*.coffee") index.coffee
-JS = $(COFFEE:.coffee=.js)
+node_modules: package.json
+	@npm install
 
-STYL 	= $(shell find lib -name "*.styl")
-CSS 	= $(STYL:.styl=.css)
+lib:
+	@mkdir -p lib
 
-# test: build
-# 	@mocha-phantomjs -R dot test/support/index.html
+lib/index.js: src/index.coffee
+	coffee -bcj $@ $<
 
-build: $(HTML) $(JS) $(CSS)
-	@component build --dev
-
-%.html: %.jade
-	jade < $< --path $< > $@
-
-%.css: %.styl
-	stylus -u nib $<
-
-%.js: %.coffee
-	coffee -bc $<
+lib/style.css: src/style.styl
+	stylus -u nib --compress < $< > $@
 
 find:
-	#
-	find ckeditor/plugins -type f && find ckeditor/skins -type f
+	@find ckeditor/plugins -type f && find ckeditor/skins -type f
 
 clean:
-	rm -rf $(HTML) $(JS) $(CSS) build
+	@rm -rf lib
 
-.PHONY: clean test
+.PHONY: clean find

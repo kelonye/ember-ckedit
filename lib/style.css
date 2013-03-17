@@ -1,6 +1,2 @@
-/* fix when intergrated with component-simple-grid */
-[class*='cke'] {
-  -webkit-box-sizing: content-box !important;
-  -moz-box-sizing: content-box !important;
-  box-sizing: content-box !important;
-}
+[class*='cke']{-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important}
+

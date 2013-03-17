@@ -7,9 +7,6 @@
   "dependencies": {
     "kelonye/ember": "*"
   },
-  "development": {
-    "timoxley/assert": "*"
-  },
   "keywords": [
     "editor",
     "ckeditor"
