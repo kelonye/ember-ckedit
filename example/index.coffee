@@ -12,4 +12,4 @@ app.get '/', (req, res) ->
 
 port = process.env.PORT || 3000
 app.listen port, ->
-  console.log "http://dev:#{port}"
+  console.log "http://localhost:#{port}"
