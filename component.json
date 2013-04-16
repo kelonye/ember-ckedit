@@ -1,6 +1,5 @@
 {
   "name": "ember-ckedit",
-  "repo": "kelonye/ember-ckedit",
   "version": "0.0.1",
   "license": "MIT",
   "description": "Ckeditor component",
@@ -20,14 +19,11 @@
     "index.js"
   ],
   "files": [
-
     "ckeditor/styles.js",
     "ckeditor/contents.css",
     "ckeditor/config.js",
     "ckeditor/build-config.js",
-
     "ckeditor/lang/en.js",
-
     "ckeditor/plugins/image/dialogs/image.js",
     "ckeditor/plugins/image/images/noimage.png",
     "ckeditor/plugins/dialog/dialogDefinition.js",
@@ -36,7 +32,6 @@
     "ckeditor/plugins/link/images/anchor.png",
     "ckeditor/plugins/icons.png",
     "ckeditor/plugins/fakeobjects/images/spacer.gif",
-
     "ckeditor/skins/moono/dialog_opera.css",
     "ckeditor/skins/moono/dialog.css",
     "ckeditor/skins/moono/dialog_ie8.css",
@@ -53,7 +48,5 @@
     "ckeditor/skins/moono/images/mini.png",
     "ckeditor/skins/moono/images/close.png",
     "ckeditor/skins/moono/editor_gecko.css"
-
-
   ]
 }

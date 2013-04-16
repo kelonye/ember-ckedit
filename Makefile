@@ -1,6 +1,6 @@
 all: node_modules lib lib/index.js lib/style.css
 
-node_modules: package.json
+node_modules:
 	@npm install
 
 lib:
@@ -18,4 +18,7 @@ find:
 clean:
 	@rm -rf lib
 
-.PHONY: clean find
+example:
+	@$(MAKE) -C example
+
+.PHONY: clean find example

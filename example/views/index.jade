@@ -1,0 +1,37 @@
+!!! 5
+html
+  head
+
+  body
+
+    script(data-template-name='index', type='text/x-handlebars')
+      br
+      {{ view App.EditorView }}
+      br
+      {{ controller.content }}
+
+    script(src='build/build.js')
+    :coffeescript
+
+      ckedit = require 'kelonye-ember-ckedit'
+
+      window.App = Em.Application.create()
+
+      App.EditorView = Em.View.extend ckedit
+
+      App.IndexController = Em.Controller.extend
+        hasEditor: (->
+          editor = @get 'editor'
+          if editor
+            editor.on 'focus', @updateContent.bind @
+            editor.on 'blur', @updateContent.bind @
+            editor.on 'key', @updateContent.bind @
+        ).observes 'editor'
+
+        updateContent: ->
+          editor = @get 'editor'
+          content = editor.getData()
+          @set 'content', content
+
+      App.Router.map ->
+

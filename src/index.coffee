@@ -1,3 +1,5 @@
+require 'ember'
+
 module.exports = Em.Mixin.create
 
   template: Em.Handlebars.compile ''
@@ -57,9 +59,9 @@ module.exports = Em.Mixin.create
 
     context = @get 'context'
     _for = @get 'for'
-
-    value = context.get "#{_for}"
-    editor.setData value
+    if _for
+      value = context.get "#{_for}"
+      editor.setData value
     context.set 'editor', editor
 
   willDestroyElement: ->
