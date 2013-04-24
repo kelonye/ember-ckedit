@@ -1,5 +1,6 @@
 {
   "name": "ember-ckedit",
+  "repo": "kelonye/ember-ckedit",
   "version": "0.0.1",
   "license": "MIT",
   "description": "Ckeditor component",
