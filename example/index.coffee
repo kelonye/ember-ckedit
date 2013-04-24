@@ -2,7 +2,7 @@ express = require 'express'
 app = express()
 
 app.use express.favicon()
-app.use express.static "#{__dirname}"
+app.use express.static "#{__dirname}/.."
 
 app.set 'views', __dirname + '/views'
 app.set 'view engine', 'jade'

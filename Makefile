@@ -1,7 +1,10 @@
-all: node_modules lib lib/index.js lib/style.css
+all: node_modules components build/kelonye-ember-ckedit lib lib/index.js lib/style.css
 
 node_modules:
 	@npm install
+
+components:
+	@component install --dev
 
 lib:
 	@mkdir -p lib
@@ -15,10 +18,21 @@ lib/style.css: src/style.styl
 find:
 	@find ckeditor/plugins -type f && find ckeditor/skins -type f
 
+example: build
+	@coffee $@
+
+build: lib/index.js lib/style.css
+	@component build --dev
+
+# hack
+build/kelonye-ember-ckedit:
+	@mkdir -p $@
+	@ln -sf $(PWD)/component.json $@
+	@ln -sf $(PWD)/index.js $@
+	@ln -sf $(PWD)/ckeditor $@
+	@ln -sf $(PWD)/lib $@
+
 clean:
-	@rm -rf lib
+	@rm -rf lib build
 
-example:
-	@$(MAKE) -C example
-
-.PHONY: clean find example
+.PHONY: clean example find

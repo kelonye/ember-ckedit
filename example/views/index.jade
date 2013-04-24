@@ -1,6 +1,7 @@
 !!! 5
 html
   head
+    link(href='build/build.css', rel='stylesheet', media='screen')
 
   body
 
@@ -13,7 +14,7 @@ html
     script(src='build/build.js')
     :coffeescript
 
-      ckedit = require 'kelonye-ember-ckedit'
+      ckedit = require 'ember-ckedit'
 
       window.App = Em.Application.create()
 

@@ -1,6 +1,0 @@
-{
-  "name": "app",
-  "dependencies": {
-    "kelonye/ember-ckedit": "*"
-  }
-}
