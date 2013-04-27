@@ -34,11 +34,7 @@ module.exports = Em.Mixin.create
     @_super()
 
     # require ckeditor
-
-    #path = document.location.pathname
-    #lastSlash = path.lastIndexOf('/') + 1
-    #abspath = path.substring(0, lastSlash)
-    window.CKEDITOR_BASEPATH = "kelonye-ember-ckedit/ckeditor/"
+    window.CKEDITOR_BASEPATH = "/kelonye-ember-ckedit/ckeditor/"
     require '../ckeditor/ckeditor'
 
     isInline  = @get 'isInline'
