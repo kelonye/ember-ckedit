@@ -1,1 +1,0 @@
-/home/me/Documents/src/kelonye/ember-ckedit/index.js

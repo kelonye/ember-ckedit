@@ -3,7 +3,7 @@ syntax: glob
 ckeditor/*.md
 ckeditor/samples
 
-*build
+*public
 *components
 *node_modules
 *npm-debug.log
