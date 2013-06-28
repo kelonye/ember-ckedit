@@ -5,7 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "coffee-script": "*",
-    "component": "*",
+    "component": "0.16.4",
     "express": "*",
     "stylus": "*",
     "jade": "*",
