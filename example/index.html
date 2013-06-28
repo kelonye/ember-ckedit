@@ -29,9 +29,8 @@
           }
         }.observes('editor'),
         updateContent: function() {
-          var content, editor;
-          editor = this.get('editor');
-          content = editor.getData();
+          var editor = this.get('editor');
+          var content = editor.getData();
           this.set('content', content);
         }
       });
