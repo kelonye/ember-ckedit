@@ -1,0 +1,1 @@
+/home/me/Documents/src/kelonye/ember-ckedit/ckeditor/plugins/link/dialogs/link.js

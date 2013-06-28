@@ -4,11 +4,7 @@
   "description": "Ckeditor component",
   "license": "MIT",
   "devDependencies": {
-    "coffee-script": "*",
-    "component": "*",
     "express": "*",
-    "stylus": "*",
-    "jade": "*",
-    "nib": "*"
+    "component-hooks": "*"
   }
 }

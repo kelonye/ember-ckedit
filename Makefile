@@ -1,38 +1,29 @@
-all: node_modules components build/kelonye-ember-ckedit
+default: node_modules components public/kelonye-ember-ckedit
 
 node_modules:
 	@npm install
 
 components:
-	@component install --dev
+	@./node_modules/component-hooks/node_modules/.bin/component install --dev
 
 # hack
-build/kelonye-ember-ckedit: build
+public/kelonye-ember-ckedit: public
 	@mkdir -p $@
 	@ln -sf $(PWD)/component.json $@
 	@ln -sf $(PWD)/index.js $@
 	@ln -sf $(PWD)/ckeditor $@
 	@ln -sf $(PWD)/lib $@
 
-build: lib lib/index.js lib/style.css
-	@component build --dev
-
-lib:
-	@mkdir -p lib
-
-lib/index.js: src/index.coffee
-	coffee -bcj $@ $<
-
-lib/style.css: src/style.styl
-	stylus -u nib --compress < $< > $@
+public:
+	@./node_modules/component-hooks/node_modules/.bin/component build --dev -o $@ -n $@
 
 find:
 	@find ckeditor/plugins -type f && find ckeditor/skins -type f
 
-example: all
-	@coffee $@
+example: default
+	@node $@
 
 clean:
-	@rm -rf lib build
+	@rm -rf public
 
 .PHONY: clean example find
