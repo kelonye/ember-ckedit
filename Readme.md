@@ -4,26 +4,20 @@
 Example
 ---
 
-Run `make example`
+    $ make example
 
 
 Api
 ---
 
-Optional attributes:
+Mixin#for
 
-Mixin#.for
+    the view context's attr which the editor's data will be set on creation.
 
-the view context's attr which the editor's data will be set on creation.
+Mixin#isInline
 
-Mixin#.isInline
+    opt for an inline editor
 
-opt for an inline editor
-
-Todo
----
-
-Tests
 
 License
 ---
