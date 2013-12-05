@@ -1,4 +1,5 @@
-var express = require('express');
+var express = require('component-hooks/node_modules/express');
+
 var app = express();
 
 app.use(express.favicon());

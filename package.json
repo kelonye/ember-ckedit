@@ -4,7 +4,6 @@
   "description": "Ckeditor component",
   "license": "MIT",
   "devDependencies": {
-    "express": "*",
     "component-hooks": "*"
   }
 }
