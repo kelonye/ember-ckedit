@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "Ckeditor component",
   "dependencies": {
-    "kelonye/ember": "*"
+    "kelonye/ember": "1.0.0-rc6"
   },
   "keywords": [
     "editor",
