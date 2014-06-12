@@ -1,11 +1,12 @@
 {
   "name": "ember-ckedit",
   "repo": "kelonye/ember-ckedit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "Ckeditor component",
+  "main": "lib/index.js",
   "dependencies": {
-    "kelonye/ember": "1.0.0-rc6"
+    "kelonye/ember": "1.2.0"
   },
   "keywords": [
     "editor",
@@ -15,39 +16,6 @@
     "lib/style.css"
   ],
   "scripts": [
-    "ckeditor/ckeditor.js",
-    "lib/index.js",
-    "index.js"
-  ],
-  "files": [
-    "ckeditor/styles.js",
-    "ckeditor/contents.css",
-    "ckeditor/config.js",
-    "ckeditor/build-config.js",
-    "ckeditor/lang/en.js",
-    "ckeditor/plugins/image/dialogs/image.js",
-    "ckeditor/plugins/image/images/noimage.png",
-    "ckeditor/plugins/dialog/dialogDefinition.js",
-    "ckeditor/plugins/link/dialogs/anchor.js",
-    "ckeditor/plugins/link/dialogs/link.js",
-    "ckeditor/plugins/link/images/anchor.png",
-    "ckeditor/plugins/icons.png",
-    "ckeditor/plugins/fakeobjects/images/spacer.gif",
-    "ckeditor/skins/moono/dialog_opera.css",
-    "ckeditor/skins/moono/dialog.css",
-    "ckeditor/skins/moono/dialog_ie8.css",
-    "ckeditor/skins/moono/editor_ie.css",
-    "ckeditor/skins/moono/editor_ie7.css",
-    "ckeditor/skins/moono/editor_ie8.css",
-    "ckeditor/skins/moono/dialog_iequirks.css",
-    "ckeditor/skins/moono/dialog_ie.css",
-    "ckeditor/skins/moono/editor_iequirks.css",
-    "ckeditor/skins/moono/editor.css",
-    "ckeditor/skins/moono/icons.png",
-    "ckeditor/skins/moono/dialog_ie7.css",
-    "ckeditor/skins/moono/images/arrow.png",
-    "ckeditor/skins/moono/images/mini.png",
-    "ckeditor/skins/moono/images/close.png",
-    "ckeditor/skins/moono/editor_gecko.css"
+    "lib/index.js"
   ]
 }

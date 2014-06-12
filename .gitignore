@@ -1,9 +1,6 @@
 syntax: glob
 
-ckeditor/*.md
-ckeditor/samples
-
-*public
-*components
-*node_modules
-*npm-debug.log
+example/public
+example/components
+example/node_modules
+example/npm-debug.log

@@ -1,13 +1,26 @@
-var express = require('component-hooks/node_modules/express');
+var ckedit = require('ember-ckedit');
 
-var app = express();
+window.App = Em.Application.create();
 
-app.use(express.favicon());
-app.use(express.static(__dirname + '/../public'));
-
-app.get('/', function(req, res){
-  res.sendfile(__dirname + '/index.html');
+App.EditorView = Em.View.extend(ckedit, {
+  editorPath: '/ckeditor/',
+  requireEditor: function(){
+    require('./public/ckeditor/ckeditor');
+  }
 });
 
-app.listen(3000);
-console.log('http://localhost:3000');
+App.IndexController = Em.Controller.extend({
+  hasEditor: function() {
+    var editor = this.get('editor');
+    if (editor) {
+      editor.on('focus', this.updateContent.bind(this));
+      editor.on('blur', this.updateContent.bind(this));
+      editor.on('key', this.updateContent.bind(this));
+    }
+  }.observes('editor'),
+  updateContent: function() {
+    var editor = this.get('editor');
+    var content = editor.getData();
+    this.set('content', content);
+  }
+});

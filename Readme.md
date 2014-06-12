@@ -4,7 +4,7 @@
 Example
 ---
 
-    $ make example
+    $ make
 
 
 Api
@@ -18,6 +18,13 @@ Mixin#isInline
 
     opt for an inline editor
 
+Mixin#editorPath
+
+    ckeditor static path
+
+Mixin#requireEditor
+
+    require your custom ckeditor .. see `/example`.
 
 License
 ---
