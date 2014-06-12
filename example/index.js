@@ -4,6 +4,7 @@ window.App = Em.Application.create();
 
 App.EditorView = Em.View.extend(ckedit, {
   editorPath: '/ckeditor/',
+  editorOpts: {},
   requireEditor: function(){
     require('./public/ckeditor/ckeditor');
   }

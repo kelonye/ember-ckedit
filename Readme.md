@@ -18,13 +18,18 @@ Mixin#isInline
 
     opt for an inline editor
 
+
+Mixin#requireEditor
+
+    function that initializes ckeditor .. see `/example`.
+
 Mixin#editorPath
 
     ckeditor static path
 
-Mixin#requireEditor
+Mixon#editorOpts
 
-    require your custom ckeditor .. see `/example`.
+    editor options
 
 License
 ---
