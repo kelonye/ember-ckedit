@@ -1,5 +1,10 @@
-
 ![](https://dl.dropbox.com/u/30162278/ember-ckedit.png)
+
+
+Install
+---
+
+    $ component install kelonye/ember-ckedit
 
 Example
 ---
@@ -9,6 +14,10 @@ Example
 
 Api
 ---
+
+Mixin
+
+    Return mixin
 
 Mixin#for
 
