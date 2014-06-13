@@ -1,35 +1,39 @@
 
-![](https://dl.dropbox.com/u/30162278/ember-ckedit.png)
+![](https://dl.dropbox.com/u/30162278/ember-upload.png) 
+
+Install
+---
+
+    $ component install kelonye/ember-upload
+
 
 Example
 ---
+    
+    $ make example
 
-    $ make
-
-
-Api
+Use
 ---
 
-Mixin#for
+```javascript
+var Upload = require('ember-upload')('/upload-path');
+Upload.addObserver('upload.progress', function(){
+  var progress = this.get('upload.progress');
+  console.log(progress);
+});
+```
 
-    the view context's attr which the editor's data will be set on creation.
+```html
+{{view Upload.ProgressView}}
+{{#view Upload.DropView}}
+  Upload or Drop files here
+{{/view}}
+```
 
-Mixin#isInline
+Todo
+---
 
-    opt for an inline editor
-
-
-Mixin#requireEditor
-
-    function that initializes ckeditor .. see `/example`.
-
-Mixin#editorPath
-
-    ckeditor static path
-
-Mixon#editorOpts
-
-    editor options
+X-browser.
 
 License
 ---

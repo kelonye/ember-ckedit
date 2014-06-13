@@ -1,0 +1,16 @@
+.drop,
+.progress{
+  display: inline-block;
+}
+.drop{
+  width: 90%;
+  text-align: center;
+  padding: 42px 0;
+  border: 1px dotted #ddd;
+}
+.drop.over{
+  border: 3px dotted #ddd;
+}
+.progress{
+  float: right;
+}

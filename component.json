@@ -1,21 +1,21 @@
 {
-  "name": "ember-ckedit",
-  "repo": "kelonye/ember-ckedit",
-  "version": "0.0.3",
-  "license": "MIT",
-  "description": "Ckeditor component",
-  "main": "lib/index.js",
+  "name": "ember-upload",
+  "version": "0.0.2",
+  "description": "File uploads component",
   "dependencies": {
-    "kelonye/ember": "1.2.0"
+    "kelonye/ember": "1.2.0",
+    "kelonye/ember-progress": "0.0.2",
+    "component/file-picker": "0.2.0"
   },
-  "keywords": [
-    "editor",
-    "ckeditor"
-  ],
   "styles": [
-    "lib/style.css"
+    "lib/styles/style.css"
   ],
+  "main": "lib/scripts/index.js",
   "scripts": [
-    "lib/index.js"
-  ]
+    "lib/scripts/index.js",
+    "lib/scripts/upload.js",
+    "lib/scripts/drop.js",
+    "lib/scripts/progress.js"
+  ],
+  "license": "MIT"
 }

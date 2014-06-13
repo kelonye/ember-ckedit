@@ -1,0 +1,6 @@
+.component.upload.progress{ 
+  display: none
+}
+.component.upload.progress.show{
+  display: block
+}

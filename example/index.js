@@ -1,27 +1,20 @@
-var ckedit = require('ember-ckedit');
+/**
+  * Module dependencies.
+  */
+var Upload = require('ember-upload')('/upload');
+var DropView = Upload.DropView;
+var ProgressView = Upload.ProgressView;
 
-window.App = Em.Application.create();
+// create drop view
 
-App.EditorView = Em.View.extend(ckedit, {
-  editorPath: '/ckeditor/',
-  editorOpts: {},
-  requireEditor: function(){
-    require('./public/ckeditor/ckeditor');
-  }
-});
+DropView
+  .create({
+    template: Em.Handlebars.compile('upload/drop zone')
+  })
+  .appendTo('body');
 
-App.IndexController = Em.Controller.extend({
-  hasEditor: function() {
-    var editor = this.get('editor');
-    if (editor) {
-      editor.on('focus', this.updateContent.bind(this));
-      editor.on('blur', this.updateContent.bind(this));
-      editor.on('key', this.updateContent.bind(this));
-    }
-  }.observes('editor'),
-  updateContent: function() {
-    var editor = this.get('editor');
-    var content = editor.getData();
-    this.set('content', content);
-  }
-});
+// create progress view
+
+ProgressView
+  .create()
+  .appendTo('body');

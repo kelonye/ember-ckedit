@@ -1,14 +1,16 @@
 {
   "name": "example",
   "local": [
-    "ember-ckedit"
+    "ember-upload"
   ],
   "paths": [
     ".",
     "../.."
   ],
   "scripts": [
-    "index.js",
-    "public/ckeditor/ckeditor.js"
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
   ]
 }
