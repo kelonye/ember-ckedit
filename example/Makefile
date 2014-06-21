@@ -1,7 +1,4 @@
 run: node_modules components
-	@rm -rf public
-	@mkdir -p public
-	@ln -s $(CURDIR)/vendor/ckeditor public
 	@node server.js
 
 node_modules:

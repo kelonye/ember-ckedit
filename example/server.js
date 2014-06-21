@@ -1,10 +1,19 @@
+/**
+  * Module dependencies.
+  */
 var express = require('component-hooks/node_modules/express');
 var build = require('./build');
 
+// app
+
 var app = express();
 
+// middleware
+
+app.use(express.logger('dev'));
 app.use(express.favicon());
 app.use(express.static(__dirname + '/public'));
+app.use('/ckeditor', express.static(__dirname + '/vendor/ckeditor'));
 
 app.get('/', function(req, res){
   build(function(err){
@@ -12,6 +21,8 @@ app.get('/', function(req, res){
     res.sendfile(__dirname + '/view.html');
   })
 });
+
+// bind
 
 app.listen(3000);
 console.log('http://localhost:3000');

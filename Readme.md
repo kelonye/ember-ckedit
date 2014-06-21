@@ -27,15 +27,6 @@ Mixin#isInline
 
     opt for an inline editor
 
-
-Mixin#requireEditor
-
-    function that initializes ckeditor .. see `/example`.
-
-Mixin#editorPath
-
-    ckeditor static path
-
 Mixon#editorOpts
 
     editor options
