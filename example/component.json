@@ -9,6 +9,6 @@
   ],
   "scripts": [
     "index.js",
-    "public/ckeditor/ckeditor.js"
+    "vendor/ckeditor/ckeditor.js"
   ]
 }

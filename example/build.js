@@ -16,6 +16,7 @@ module.exports = function (next){
     .copy()
     .standalone()
     .dev()
+    .log()
     .end(next);
 
 }
