@@ -10,7 +10,12 @@
     </script>
     <script src='/ckeditor/ckeditor.js'></script>
     <script data-template-name='index' type='text/x-handlebars'>
-      <br>{{ck-editor}}<br>{{ controller.content }}
+      <br>
+      {{ck-editor value=post}}
+      <br>
+      {{ post }}
+      <br>
+      {{{ post }}}
     </script>
     <script src='/public.js'></script>
 

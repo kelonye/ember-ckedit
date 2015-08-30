@@ -25,11 +25,15 @@ Mixin#for
 
 Mixin#isInline
 
-    opt for an inline editor
+    set to true to make editor inline
 
-Mixon#editorOpts
+Mixin#editorOpts
 
     editor options
+
+Mixin#events
+
+    array of events to trigger value update
 
 License
 ---
