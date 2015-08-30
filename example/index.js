@@ -2,7 +2,7 @@ var ckedit = require('ember-ckedit');
 
 window.App = Em.Application.create();
 
-App.EditorView = Em.View.extend(ckedit, {
+App.CkEditorComponent = Em.Component.extend(ckedit, {
   editorPath: '/ckeditor/',
   editorOpts: {},
   requireEditor: function(){

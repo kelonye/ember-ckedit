@@ -1,12 +1,12 @@
 {
   "name": "ember-ckedit",
   "repo": "kelonye/ember-ckedit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "Ckeditor component",
   "main": "lib/index.js",
   "dependencies": {
-    "kelonye/ember": "1.7.0"
+    "kelonye/ember": "1.9.1"
   },
   "keywords": [
     "editor",
